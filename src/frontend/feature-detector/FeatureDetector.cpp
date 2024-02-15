@@ -20,6 +20,7 @@ FeatureDetector::FeatureDetector(
     : feature_detector_params_(feature_detector_params),
       non_max_suppression_(nullptr),
       feature_detector_() {
+
   // TODO(Toni): parametrize as well whether we use bucketing or anms...
   // Right now we assume we want anms not bucketing...
   if (feature_detector_params.enable_non_max_suppression_) {
@@ -167,7 +168,10 @@ std::vector<cv::KeyPoint> FeatureDetector::rawFeatureDetection(
     const cv::Mat& mask) {
   std::vector<cv::KeyPoint> keypoints;
   CHECK(feature_detector_);
+  auto tic_detect = utils::Timer::tic();
   feature_detector_->detect(img, keypoints, mask);
+  VLOG(1) << "Feature Detector Timing [ms]: "
+              << utils::Timer::toc(tic_detect).count();
   return keypoints;
 }
 
