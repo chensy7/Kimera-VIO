@@ -88,9 +88,13 @@ void StereoMatcher::denseStereoReconstruction(
     cv_stereo_matcher = sbm;
   }
 
+
   // Reconstruct scene
+  auto tic_stereo_match = utils::Timer::tic();
   cv_stereo_matcher->compute(
       left_img_rectified, right_img_rectified, *disparity_img);
+  VLOG(0) << "StereoMatcher Timing [ms]: "
+              << utils::Timer::toc(tic_stereo_match);
 
   // Optionally, post-filter disparity
   if (dense_stereo_params_.post_filter_disparity_) {
