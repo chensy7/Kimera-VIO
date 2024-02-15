@@ -171,7 +171,7 @@ std::vector<cv::KeyPoint> FeatureDetector::rawFeatureDetection(
   auto tic_detect = utils::Timer::tic();
   feature_detector_->detect(img, keypoints, mask);
   VLOG(0) << "Feature Detector Timing [ms]: "
-              << utils::Timer::toc(tic_detect);
+              << utils::Timer::toc(tic_detect).count();
   return keypoints;
 }
 

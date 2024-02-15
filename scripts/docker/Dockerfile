@@ -83,6 +83,6 @@ RUN cd Kimera-RPGO && \
       make -j$(nproc) install
 
 # Install Kimera-VIO
-RUN pwd
+RUN ls
 RUN git clone https://github.com/chensy7/Kimera-VIO.git
 RUN cd Kimera-VIO && mkdir build && cd build && cmake .. && make -j$(nproc)
