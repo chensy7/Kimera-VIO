@@ -101,7 +101,7 @@ $BUILD_PATH/stereoVIOEuroc \
   --logtostderr=1 \
   --colorlogtostderr=1 \
   --log_prefix=1 \
-  --v=1 \
+  --v=0 \
   --visualize=false \
   --vmodule=Pipeline*=00 \
   --log_output="$LOG_OUTPUT" \
