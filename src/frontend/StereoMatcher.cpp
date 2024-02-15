@@ -19,6 +19,7 @@
 #include <opencv2/calib3d.hpp>
 
 #include "kimera-vio/frontend/StereoFrame.h"
+#include "kimera-vio/utils/Timer.h"
 #include "kimera-vio/utils/Macros.h"
 
 namespace VIO {
